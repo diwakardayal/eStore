@@ -1,0 +1,56 @@
+
+
+.Login{
+    font-family: Arial, Helvetica, sans-serif;
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-image:linear-gradient( rgba(106, 133, 112, 0.848), rgba(255, 255, 0, 0.371));
+   color: #303030;
+
+   .formcenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 10px 4rem;
+    border-radius: 10px;
+    padding-bottom: 1.5rem;
+   box-shadow: 5px 10px 5px #3a3a3aec;
+
+    
+   }
+
+   .loginSec{
+    margin: 5px auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    label{
+        margin-bottom: .2rem;
+        font-size: .8rem;
+     }
+     
+     input{
+        padding: .35rem .1rem;
+     }
+    ::placeholder{
+        margin-left: 0;
+    }
+    
+    }
+
+    button{
+        padding: .5rem 2rem;
+        border-radius: 5px;
+        border:none;
+        background-color: skyblue;
+        cursor: pointer;
+    }
+   }
+ 
+ 

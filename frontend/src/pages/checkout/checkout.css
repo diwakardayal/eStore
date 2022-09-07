@@ -1,0 +1,44 @@
+.shoppingButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checkoutMidbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.checkoutMain {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkoutLeft {
+  display: flex;
+}
+.checkoutLeft img {
+  max-width: 50%;
+}
+
+.checkout_product_info {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.checkout_product_info_right {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  height: 3rem;
+}
+.checkout_product_info_right div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}/*# sourceMappingURL=checkout.css.map */

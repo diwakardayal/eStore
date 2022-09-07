@@ -1,0 +1,41 @@
+.newsletter {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: #fcf5f5;
+  padding: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  div input {
+    min-width: 30rem;
+    padding: 0.3rem;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: green;
+    color: white;
+    border: none;
+    width: 2rem;
+    border-radius: 2px;
+  }
+}

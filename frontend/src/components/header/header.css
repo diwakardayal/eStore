@@ -1,0 +1,45 @@
+.header {
+  width: 95vw;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.header .header-left {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+}
+.header .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px solid rgba(128, 128, 128, 0.545);
+  padding: 3px;
+}
+.header .search input {
+  border: none;
+}
+.header .header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-transform: uppercase;
+}
+
+.cart {
+  position: relative;
+}
+
+.cartNo {
+  z-index: -999;
+  position: absolute;
+  color: white;
+  font-size: 0.7rem;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: skyblue;
+  width: 100%;
+  border-radius: 100%;
+}/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,133 @@
+.sliderContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: visible;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  .slider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+
+    .text {
+      margin-top: 15%;
+
+      h3 {
+        font-size: 4rem;
+        margin: auto;
+      }
+    }
+
+    img {
+      max-width: 50%;
+    }
+  }
+}
+
+.midSection {
+  margin: auto;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 90vw;
+  gap: 1rem;
+
+  div {
+    position: relative;
+    color: white;
+    font-size: 1.5rem;
+
+    img {
+      height: 40rem;
+      width: 100%;
+      object-fit: fill;
+    }
+
+    button {
+      border: none;
+      padding: 0.5rem 1rem;
+      color: #656565;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
+  .innerText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.grid {
+  margin-top: 5rem;
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .eachGrid {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    outline: 1px solid rgba(128, 128, 128, 0.245);
+    flex: 1;
+    min-width: 20rem;
+    margin: 1rem;
+    transition: background-color opacity ease-out 250ms;
+    cursor: pointer;
+
+    img {
+      object-fit: cover;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .eachGrid:hover {
+    transition: 0.5s;
+    background-color: #0000006d;
+    img {
+      opacity: 0.4;
+    }
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    transition: opacity ease-out 250ms;
+  }
+
+  .eachGrid:hover .icons {
+    opacity: 1;
+  }
+
+  .icons {
+    color: black;
+  }
+}

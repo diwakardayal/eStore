@@ -1,0 +1,110 @@
+.SPPcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  img {
+    max-width: 90%;
+    border-radius: 5px;
+    height: auto;
+  }
+  margin: 0;
+  padding: 0;
+
+  h3 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+}
+
+.SPPcontainer > div {
+  flex: 1;
+}
+
+.sppcolor {
+  display: flex;
+  flex-direction: row;
+
+  .sppcolor > div {
+    margin-right: 1rem;
+  }
+}
+
+.sppsize {
+  display: flex;
+  flex-direction: row;
+}
+
+.radioButton {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+.radioButtonGreen:before {
+  position: absolute;
+  content: "";
+  background-color: green;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 1rem;
+}
+
+.radioButtonGreen:active::before,
+.radioButtonGreen:focus::before,
+.radioButtonGreen:visited::before {
+  background-color: darkgreen;
+}
+
+.radioButtonRed:before {
+  position: absolute;
+  content: "";
+  background-color: red;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 1rem;
+}
+.radioButtonRed:active::before,
+.radioButtonRed:focus::before,
+.radioButtonRed:visited::before {
+  background-color: darkred;
+}
+.radioButtonBlue:before {
+  position: absolute;
+  content: "";
+  background-color: blue;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 1rem;
+}
+.radioButtonBlue:active::before,
+.radioButtonBlue:focus::before,
+.radioButtonBlue:visited::before {
+  background-color: darkblue;
+}
+
+.checkoutButton {
+  margin-top: 3rem;
+  padding: 0.5rem 2rem;
+  border: none;
+  background-color: #f7bd01;
+  border-radius: 2px;
+  cursor: pointer;
+}

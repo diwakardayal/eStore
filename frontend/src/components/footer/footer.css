@@ -1,0 +1,29 @@
+.footer {
+  width: 95vw;
+  margin: 2rem auto;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: row;
+}
+.footer p {
+  max-width: 40ch;
+}
+.footer .middle div ul {
+  margin: 0;
+  padding: 0;
+  height: 10rem;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer div {
+  flex: 1;
+}
+.footer .contact div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7rem;
+}/*# sourceMappingURL=footer.css.map */
