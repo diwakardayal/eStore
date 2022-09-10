@@ -47,6 +47,8 @@ export const popularProducts = [
     img: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
     productName: "Mens-Jake-Guitar-Vintage-Crusher-Tee",
     amount: 441,
+    color: "black",
+    size: "medium",
   },
   {
     id: 2,
@@ -54,6 +56,8 @@ export const popularProducts = [
     productId: 66374,
     productName: "Rocket-Vintage-Chill-Cap",
     amount: 555,
+    color: "black",
+    size: "medium",
   },
   {
     id: 3,
@@ -61,6 +65,8 @@ export const popularProducts = [
     productId: 66371,
     productName: "pradanux_products",
     amount: 551,
+    color: "black",
+    size: "medium",
   },
   {
     id: 4,
@@ -68,6 +74,8 @@ export const popularProducts = [
     productId: 66372,
     productName: "bus-pat-burte",
     amount: 999,
+    color: "black",
+    size: "medium",
   },
   {
     id: 5,
@@ -75,6 +83,8 @@ export const popularProducts = [
     productId: 66323,
     productName: "Noissue-x-creatsy-tote-bag-mockup",
     amount: 551,
+    color: "black",
+    size: "medium",
   },
   {
     id: 6,
@@ -82,6 +92,8 @@ export const popularProducts = [
     productId: 66390,
     productName: "Rocket-Vintage-Chill-Cap",
     amount: 551,
+    color: "black",
+    size: "medium",
   },
   {
     id: 7,
@@ -89,6 +101,8 @@ export const popularProducts = [
     productId: 66390,
     productName: "Rocket-Vintage-Chill-Cap",
     amount: 551,
+    color: "black",
+    size: "medium",
   },
   {
     id: 8,
@@ -96,5 +110,7 @@ export const popularProducts = [
     productId: 66390,
     productName: "Rocket-Vintage-Chill-Cap2",
     amount: 553,
+    color: "black",
+    size: "medium",
   },
 ];

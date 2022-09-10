@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./header.css";
 
 const Header = () => {
-  const { cart, setCart } = useContext(Cart);
+  const { cart } = useContext(Cart);
   return (
     <div className="header">
       <div className="header-left">

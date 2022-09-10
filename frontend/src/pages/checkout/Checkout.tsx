@@ -59,8 +59,8 @@ const Checkout = () => {
 
         <div className="checkoutMain">
           <div className="checkoutLeft">
-            <div>
-              <div>
+            <div className="checkoutLeft_child">
+              <div className="imagediv">
                 <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
               </div>
 
@@ -72,7 +72,7 @@ const Checkout = () => {
                   <p>
                     <strong>ID: </strong>92132983
                   </p>
-                  <div className="selectedColor"></div>
+
                   <p>
                     <strong>Size: </strong>37.5
                   </p>

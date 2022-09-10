@@ -11,7 +11,7 @@ import SPP from "./pages/SinglePageProduct/SPP";
 import Checkout from "./pages/checkout/Checkout";
 
 function App() {
-  const [cart, setCart] = useState<number>(0);
+  const [cart, setCart] = useState<any>([]);
 
   // const something = useMemo(() => ({ value, setValue }), [value, setValue]);
 

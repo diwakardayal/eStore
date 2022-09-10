@@ -2,19 +2,26 @@ import react, { useState, useContext } from "react";
 import "./homepage.css";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
-import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
+import {
+  IoMdArrowDropleft,
+  IoMdArrowDropright,
+  IoMdBody,
+} from "react-icons/io";
 import { popularProducts, categories, sliderItems } from "../../data";
 import Newsletter from "../../components/newsletter/Newsletter";
 import { Cart } from "../../utils/Store";
 import { Link } from "react-router-dom";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiFillRightCircle, AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsFillHeartFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { ObjectType } from "typescript";
 
 const Homepage = () => {
   const [counter, setCounter] = useState<number>(1);
+  let navigate = useNavigate();
 
   const nextButton = () => {
     if (counter <= 3) {
@@ -27,7 +34,22 @@ const Homepage = () => {
 
   const { cart, setCart } = useContext(Cart);
 
+  console.log(cart);
+  Object(cart);
+  console.log(typeof cart);
+
   const prevButton = () => {};
+
+  function LeftnRightSlider(left: any) {
+    let lets = document.body.querySelector<any>(".sliderContainer");
+    console.log(lets);
+
+    if (left === "left") {
+      lets.scrollLeft = lets.scrollLeft - 1400;
+    } else {
+      lets.scrollLeft = lets.scrollLeft + 1400;
+    }
+  }
 
   return (
     <div className="homepage">
@@ -35,15 +57,16 @@ const Homepage = () => {
       <div className="sliderContainer">
         <div
           style={{
-            position: "absolute",
-            top: "50%",
+            position: "fixed",
+
             left: "1rem",
+
             backgroundColor: "red",
           }}
         >
           <IoMdArrowDropleft
             onClick={() => {
-              prevButton();
+              LeftnRightSlider("left");
               console.log("CLICKED");
             }}
             className="prevButton"
@@ -54,19 +77,29 @@ const Homepage = () => {
           {sliderItems.map((item: any) => {
             return (
               <div className="card">
-                <img src={sliderItems[0].img} />
+                <img src={item.img} />
 
                 <div className="text">
-                  <h3>{sliderItems[0].title}</h3>
-                  <p>{sliderItems[0].desc}</p>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div style={{ position: "absolute", top: "50%", right: "1rem" }}>
-          <IoMdArrowDropright onClick={nextButton} className="nextbutton" />
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            right: "1rem",
+            backgroundColor: "red",
+          }}
+        >
+          <IoMdArrowDropright
+            onClick={() => LeftnRightSlider("right")}
+            className="nextButton"
+          />
         </div>
       </div>
 
@@ -94,8 +127,8 @@ const Homepage = () => {
                   src={val.img}
                   className="gridImg"
                   onClick={() =>
-                    setCart([
-                      ...cart,
+                    setCart((prev: any) => [
+                      ...prev,
                       {
                         productId: `${val.productId}`,
                         img: `${val.img}`,

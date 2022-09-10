@@ -3,10 +3,14 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import { Cart } from "../../utils/Store";
 import "./spp.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const SPP = () => {
+  const location = useLocation();
   const { cart, setCart } = useContext(Cart);
   const [value, setValue] = useState<number>(1);
+
+  // const valueinfo = JSON.stringify(location);
+  // console.log(valueinfo);
 
   function addition() {
     setValue((prev) => prev + 1);
@@ -102,7 +106,7 @@ const SPP = () => {
               <div>{value}</div>
               <div onClick={addition}>+</div>
             </div>
-            <button onClick={() => setCart((prev: number) => prev + 1)}>
+            <button onClick={() => setCart((prev: any) => [`${prev} + 1`])}>
               Add to Cart
             </button>
             {cart}

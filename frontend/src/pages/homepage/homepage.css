@@ -5,6 +5,9 @@
   overflow-x: visible;
   padding-left: 1rem;
   padding-right: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  position: relative;
 }
 .sliderContainer .slider {
   display: flex;
@@ -117,4 +120,9 @@
 }
 .grid .icons {
   color: black;
+}
+
+.prevButton,
+.nextButton {
+  cursor: pointer;
 }/*# sourceMappingURL=homepage.css.map */

@@ -19,14 +19,26 @@
 .checkoutLeft {
   display: flex;
 }
+.checkoutLeft .checkoutLeft_child {
+  display: flex;
+  justify-content: space-between;
+  gap: 15vw;
+}
 .checkoutLeft img {
-  max-width: 50%;
+  max-width: 100%;
+  height: auto;
+}
+.checkoutLeft .imagediv {
+  -o-object-fit: fill;
+     object-fit: fill;
+  height: 200px;
+  width: 200px;
 }
 
 .checkout_product_info {
   display: flex;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .checkout_product_info_right {
