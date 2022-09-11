@@ -49,6 +49,7 @@ export const popularProducts = [
     amount: 441,
     color: "black",
     size: "medium",
+    quantity: 1,
   },
   {
     id: 2,
@@ -58,6 +59,7 @@ export const popularProducts = [
     amount: 555,
     color: "black",
     size: "medium",
+    quantity: 1,
   },
   {
     id: 3,
@@ -67,6 +69,7 @@ export const popularProducts = [
     amount: 551,
     color: "black",
     size: "medium",
+    quantity: 1,
   },
   {
     id: 4,
@@ -76,6 +79,7 @@ export const popularProducts = [
     amount: 999,
     color: "black",
     size: "medium",
+    quantity: 1,
   },
   {
     id: 5,
@@ -85,6 +89,7 @@ export const popularProducts = [
     amount: 551,
     color: "black",
     size: "medium",
+    quantity: 1,
   },
   {
     id: 6,
@@ -94,6 +99,7 @@ export const popularProducts = [
     amount: 551,
     color: "black",
     size: "medium",
+    quantity: 1,
   },
   {
     id: 7,
@@ -103,6 +109,7 @@ export const popularProducts = [
     amount: 551,
     color: "black",
     size: "medium",
+    quantity: 1,
   },
   {
     id: 8,
@@ -112,5 +119,6 @@ export const popularProducts = [
     amount: 553,
     color: "black",
     size: "medium",
+    quantity: 1,
   },
 ];

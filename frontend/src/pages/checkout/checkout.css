@@ -18,6 +18,7 @@
 
 .checkoutLeft {
   display: flex;
+  flex-direction: column;
 }
 .checkoutLeft .checkoutLeft_child {
   display: flex;

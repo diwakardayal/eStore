@@ -126,18 +126,48 @@ const Homepage = () => {
                   data-key={key}
                   src={val.img}
                   className="gridImg"
-                  onClick={() =>
-                    setCart((prev: any) => [
-                      ...prev,
-                      {
-                        productId: `${val.productId}`,
-                        img: `${val.img}`,
-                        productName: `${val.productName}`,
-                        Amount: `${val.amount}`,
-                        Quantity: `${val.Quantity}`,
-                      },
-                    ])
-                  }
+                  onClick={() => {
+                    if (cart.length === 0) {
+                      setCart((prev: any) => [
+                        {
+                          id: val.id,
+                          productId: `${val.productId}`,
+                          img: `${val.img}`,
+                          productName: `${val.productName}`,
+                          amount: val.amount,
+                          quantity: Number(val.quantity),
+                          color: `${val.color}`,
+                          size: `${val.size}`,
+                        },
+                      ]);
+                    } else {
+                      for (const item of cart) {
+                        console.log("item.id", item.id);
+                        console.log("val.id", val.id);
+                        if (item.id === val.id) {
+                          item.quantity++;
+                          console.log(item);
+
+                          // setCart((prev: any) => [...prev, item.quantity++]);
+                        } else {
+                          setCart((prev: any) => [
+                            ...prev,
+                            {
+                              id: val.id,
+                              productId: `${val.productId}`,
+                              img: `${val.img}`,
+                              productName: `${val.productName}`,
+                              amount: val.amount,
+                              quantity: Number(val.quantity),
+                              color: `${val.color}`,
+                              size: `${val.size}`,
+                            },
+                          ]);
+                        }
+                        break;
+                      }
+                    }
+                  }}
                 />
               </Link>
 

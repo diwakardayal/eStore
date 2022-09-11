@@ -59,37 +59,43 @@ const Checkout = () => {
 
         <div className="checkoutMain">
           <div className="checkoutLeft">
-            <div className="checkoutLeft_child">
-              <div className="imagediv">
-                <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
-              </div>
+            {cart.map((val: any) => {
+              return (
+                <div className="checkoutLeft_child">
+                  <div className="imagediv">
+                    <img src={val.img} />
+                  </div>
 
-              <div className="checkout_product_info">
-                <div className="checkout_product_info_left">
-                  <p>
-                    <strong>Product: </strong> Jessie thunder shoes
-                  </p>
-                  <p>
-                    <strong>ID: </strong>92132983
-                  </p>
+                  <div className="checkout_product_info">
+                    <div className="checkout_product_info_left">
+                      <p>
+                        <strong>Product: </strong> {val.productName}
+                      </p>
+                      <p>
+                        <strong>ID: </strong>
+                        {val.productId}
+                      </p>
 
-                  <p>
-                    <strong>Size: </strong>37.5
-                  </p>
-                </div>
-              </div>
-              <div className="checkout_product_info_right">
-                <div>
-                  <div>+</div>
-                  <div>2</div>
-                  <div>-</div>
-                </div>
+                      <p>
+                        <strong>Size: </strong>
+                        {val.size}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="checkout_product_info_right">
+                    <div>
+                      <div>+</div>
+                      <div>1</div>
+                      <div>-</div>
+                    </div>
 
-                <div>
-                  <p>$30</p>
+                    <div>
+                      <p>Rs {val.amount}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
           <div className="checkoutRight">
             <h3>Order Summary</h3>
