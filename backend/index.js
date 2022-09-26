@@ -11,19 +11,23 @@ const login = require("./routes/Login");
 const register = require("./routes/Register");
 const info = require("./routes/Userop");
 const wish = require("./routes/Wishlist");
-const cart = require("./routes/Cart");
+const getproduct = require("./routes/getproduct");
+const inventory = require("./routes/api/inventory/inventory");
+const cart = require("./routes/api/cart/cart");
+const uuid = require("./routes/api/uuid/uuid");
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const razorpay = new Razorpay({
   key_id: "rzp_test_dkIJG0XBhPqOXO",
   key_secret: "uVFuEwG9eQXwlfx1gHoYYyCY",
 });
 
-// app.use(
-//   cors({
-//     origin: "*",
-//   })
-// );
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 //database connection
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -46,6 +50,10 @@ app.use("/api/login", login);
 app.use("/api/info", info);
 app.use("/api/wishlist", wish);
 app.use("/api/cart", cart);
+app.use("/api/getproductbyid", getproduct);
+app.use("/api/inventory", inventory);
+app.use("/api/cart", cart);
+app.use("/api/uuid", uuid);
 app.post("/api/razorpay", async (req, res) => {
   const payment_capture = 1;
   const amount = 999;

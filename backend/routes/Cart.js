@@ -5,20 +5,45 @@ const Jwt = require("jsonwebtoken");
 const UserCart = require("../model/UserCart");
 
 router.post("/", async (req, res) => {
-  const { id, productName, productId, Amount, Quantity } = req.body;
+  const {
+    uniqueId,
+    productName,
+    productId,
+    amount,
+    quantity,
+    img,
+    color,
+    size,
+  } = req.body;
+
+  console.log(
+    uniqueId,
+    productName,
+    productId,
+    amount,
+    quantity,
+    img,
+    color,
+    size
+  );
 
   const wish = new UserCart({
-    _id: id,
+    uniqueId: uniqueId,
     productName: productName,
+    img: img,
     productId: productId,
-    Amount: Amount,
-    Quantity: Quantity,
+    color: color,
+    size: size,
+    amount: amount,
+    quantity: quantity,
   });
 
   await wish.save();
 
+  // await wish.findOne({ uniqueId: uniqueId });
+
   if (wish) {
-    res.send("item saved in wish list");
+    res.status(200).send("item saved in wish list");
   } else {
     res.status(500).send("Internal server error");
   }

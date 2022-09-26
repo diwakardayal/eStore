@@ -1,7 +1,9 @@
 .SPPcontainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  max-width: 70rem;
+  margin: auto;
   margin: 0;
   padding: 0;
 }
@@ -48,10 +50,10 @@
   cursor: pointer;
 }
 
-.radioButtonGreen:before {
+.radioButtonBlack:before {
   position: absolute;
   content: "";
-  background-color: green;
+  background-color: black;
   top: 0;
   bottom: 0;
   left: 0;
@@ -59,10 +61,10 @@
   border-radius: 1rem;
 }
 
-.radioButtonGreen:active::before,
-.radioButtonGreen:focus::before,
-.radioButtonGreen:visited::before {
-  background-color: darkgreen;
+.radioButtonBlack:active::before,
+.radioButtonBlack:focus::before,
+.radioButtonBlack:visited::before {
+  background-color: rgb(47, 47, 47);
 }
 
 .radioButtonRed:before {
@@ -106,4 +108,8 @@
   background-color: #f7bd01;
   border-radius: 2px;
   cursor: pointer;
+}
+
+.checkoutButton:hover {
+  background-color: rgba(247, 190, 1, 0.6862745098);
 }/*# sourceMappingURL=spp.css.map */

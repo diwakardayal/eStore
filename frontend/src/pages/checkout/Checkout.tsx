@@ -4,10 +4,12 @@ import Header from "../../components/header/Header";
 import { Cart } from "../../utils/Store";
 import PaymentGateway from "../../services/PaymentGateway";
 import "./checkout.css";
+import { useLocation, useParams } from "react-router-dom";
 
 const Checkout = () => {
   const { cart, setCart } = useContext(Cart);
-  console.log(cart);
+
+  const param = useParams();
 
   const loadScript = (src: any) => {
     return new Promise((resolve) => {

@@ -3,6 +3,7 @@ import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { Cart } from "../../utils/Store";
 import { Link } from "react-router-dom";
 import "./header.css";
+import Logo from "./../../assets/eStore.png";
 
 const Header = () => {
   const { cart } = useContext(Cart);
@@ -18,8 +19,16 @@ const Header = () => {
         </div>
       </div>
 
-      <Link to="/">
-        <h3 className="header-heading">Store</h3>
+      <Link to="/" style={{ display: "flex", justifyContent: "center" }}>
+        {/* <h3 className="header-heading">Store</h3> */}
+        <img
+          src={Logo}
+          style={{
+            width: "10%",
+            minWidth: "10%",
+            height: "auto",
+          }}
+        />
       </Link>
 
       <div className="header-right">

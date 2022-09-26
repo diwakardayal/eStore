@@ -1,9 +1,23 @@
 import react from "react";
 import "./Login.css";
+import { LoginApi } from "../../services/auth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   function onSubmit(e: any) {
     e.preventDefault();
+
+    const { email, password } = e.target;
+
+    LoginApi({ email: email.value, password: password.value }).then((res) => {
+      console.log(res);
+
+      sessionStorage.setItem("Token", res.token);
+      navigate("/");
+    });
+
+    console.log(email.value, password.value);
 
     console.log(e);
   }
@@ -14,8 +28,8 @@ const Login = () => {
           <h1>Login</h1>
           <form onSubmit={onSubmit}>
             <div className="loginSec">
-              <label htmlFor="username">Username</label>
-              <input type="username" id="username" placeholder="username" />
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" placeholder="email" />
             </div>
 
             <div className="loginSec">

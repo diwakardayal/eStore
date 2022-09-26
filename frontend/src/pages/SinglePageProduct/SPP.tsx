@@ -1,87 +1,177 @@
-import react, { useState, useContext } from "react";
+import react, { useState, useContext, useEffect } from "react";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import { Cart } from "../../utils/Store";
 import "./spp.css";
-import { Link, useLocation } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
+import { getProductById } from "../../services/product";
+import { AddtoCart } from "../../services/cart";
+import { IoMdTennisball } from "react-icons/io";
 const SPP = () => {
   const location = useLocation();
   const { cart, setCart } = useContext(Cart);
   const [value, setValue] = useState<number>(1);
 
-  // const valueinfo = JSON.stringify(location);
-  // console.log(valueinfo);
+  const [color, setColor] = useState<any>();
+  const [selectedColor, setSelectedColor] = useState<any>();
+  const [size, setSize] = useState<any>([]);
+
+  const [fetchedproduct, setFetchedProduct] = useState<any>();
+
+  const {} = useSearchParams();
+
+  const { productId } = useParams();
+
+  useEffect(() => {
+    getProductById(productId).then((res: any) => {
+      // console.log(res.data.size);
+      setFetchedProduct(res.data);
+      setColor(res.data.quantity.color);
+    });
+  }, []);
 
   function addition() {
     setValue((prev) => prev + 1);
+
+    for (const item in selectedColor) {
+      const saved = item;
+
+      selectedColor[item] = value;
+    }
+
+    // if (selectedColor) {
+    //   const newValue = Object.keys(selectedColor);
+    //   setSelectedColor({ newValue, value });
+    // }
   }
 
   function sub() {
     if (value === 0) {
     } else {
       setValue((prev) => prev - 1);
+
+      for (const item in selectedColor) {
+        const saved = item;
+        selectedColor[item] = value;
+      }
+
+      console.log(selectedColor);
     }
   }
 
+  function SubmitAddtoCartfn(e: any) {
+    e.preventDefault();
+
+    fetchedproduct.quantity = value;
+    fetchedproduct.color = color;
+    fetchedproduct.size = e.target.size.value;
+    fetchedproduct.amount = fetchedproduct.amount * value;
+
+    console.log(fetchedproduct);
+
+    const data = {
+      userId: sessionStorage.getItem("userId"),
+      uniqueId: productId,
+      amount: Number(fetchedproduct.amount * value),
+      color: {
+        ...selectedColor,
+      },
+    };
+    console.log(data);
+
+    if (data) {
+      AddtoCart(data).then((res) => console.log(res));
+    } else {
+      console.log("ERR data not present");
+    }
+  }
+
+  function colorSelector() {
+    if (!color?.blue && !color?.red && !color?.black) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   return (
     <>
       <Header />
       <div
-        style={{ padding: "1rem", width: "90%", margin: "auto" }}
+        style={{
+          padding: "1rem",
+          width: "90%",
+          margin: "auto",
+          marginTop: "3rem",
+        }}
         className="SPPcontainer"
       >
         <div className="SPPLeftImage">
-          <img src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+          <img src={fetchedproduct?.img} />
         </div>
 
-        <div className="SPPRightDescription">
-          <h3>Denim Jumpsuit</h3>
-          <p className="desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-            tristique tortor pretium ut. Curabitur elit justo, consequat id
-            condimentum ac, volutpat ornare.
-          </p>
+        <form className="SPPRightDescription" onSubmit={SubmitAddtoCartfn}>
+          <h3>{fetchedproduct?.productName}</h3>
+          <p className="desc">{fetchedproduct?.productDesc}</p>
 
-          <p className="price">$ 20</p>
+          <p className="price">$ {fetchedproduct?.amount}</p>
 
           <div className="sppcolor" style={{ display: "flex", gap: "2rem" }}>
             <div>
               <p>Color</p>
-              <input
-                type="radio"
-                id="color"
-                name="color"
-                value="blue"
-                className="radioButton radioButtonBlue "
-              />
-              <input
-                type="radio"
-                id="color"
-                name="color"
-                value="red"
-                className="radioButton radioButtonRed"
-              />
-              <input
-                type="radio"
-                id="color"
-                name="color"
-                value="green"
-                className="radioButton radioButtonGreen"
-              />
+
+              {colorSelector() && color?.blue > 0 ? (
+                <input
+                  style={{ backgroundColor: "red" }}
+                  type="radio"
+                  id="color"
+                  name="color"
+                  className="radioButton radioButtonBlue"
+                  onClick={(e: any) => setSelectedColor({ blue: value })}
+                />
+              ) : (
+                " "
+              )}
+
+              {colorSelector() && color?.red > 0 ? (
+                <input
+                  style={{ backgroundColor: "red" }}
+                  type="radio"
+                  id="color"
+                  name="color"
+                  onClick={(e: any) => setSelectedColor({ red: value })}
+                  className="radioButton radioButtonRed"
+                />
+              ) : (
+                " "
+              )}
+
+              {colorSelector() && color?.black > 0 ? (
+                <input
+                  style={{ backgroundColor: "black" }}
+                  type="radio"
+                  id="color"
+                  name="color"
+                  className="radioButton radioButtonBlack"
+                  onClick={(e: any) => setSelectedColor({ black: value })}
+                />
+              ) : (
+                " "
+              )}
             </div>
 
             <div className="sppsize" style={{ height: "20px" }}>
-              <select name="cars" id="cars">
-                <label>Choose a car:</label>
+              <select name="size" id="size">
                 <option value="s" selected disabled>
                   Choose your size
                 </option>
-                <option value="s">S</option>
-                <option value="m">m</option>
-                <option value="l">l</option>
-                <option value="xl">xl</option>
+                <option value={fetchedproduct?.size}>
+                  {fetchedproduct?.size}
+                </option>
               </select>
             </div>
           </div>
@@ -106,15 +196,23 @@ const SPP = () => {
               <div>{value}</div>
               <div onClick={addition}>+</div>
             </div>
-            <button onClick={() => setCart((prev: any) => [`${prev} + 1`])}>
-              Add to Cart
-            </button>
+
             {cart}
           </div>
-          <Link to="/checkout">
-            <button className="checkoutButton">Checkout</button>
-          </Link>
-        </div>
+          <div>
+            <button
+              className="checkoutButton"
+              type="submit"
+              style={{ marginRight: ".5rem", backgroundColor: "lightgreen" }}
+              // onClick={() => setCart((prev: any) => [`${prev} + 1`])}
+            >
+              Add to Cart
+            </button>
+            <Link to="/checkout">
+              <button className="checkoutButton">Checkout</button>
+            </Link>
+          </div>
+        </form>
       </div>
       <Footer />
     </>

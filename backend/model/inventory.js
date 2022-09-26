@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
-const UserCart = new mongoose.Schema({
-  userId: {
-    type: String,
-    required: true,
-  },
+const inventory = new mongoose.Schema({
   uniqueId: {
     type: String,
     required: true,
@@ -34,16 +30,20 @@ const UserCart = new mongoose.Schema({
     total: {
       type: Number,
       required: true,
+      min: 0,
     },
     color: {
       black: {
         type: Number,
+        min: 0,
       },
       blue: {
         type: Number,
+        min: 0,
       },
       red: {
         type: Number,
+        min: 0,
       },
     },
   },
@@ -53,4 +53,4 @@ const UserCart = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("UserCarts", UserCart);
+module.exports = mongoose.model("Inventories", inventory);

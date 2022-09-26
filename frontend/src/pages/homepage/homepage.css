@@ -8,6 +8,7 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   position: relative;
+  margin-top: 1rem;
 }
 .sliderContainer .slider {
   display: flex;
@@ -18,18 +19,22 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  color: rgba(0, 0, 0, 0.881);
+  margin: auto;
   width: 100vw;
 }
 .sliderContainer .card .text {
   margin-top: 15%;
 }
 .sliderContainer .card .text h3 {
-  font-size: 4rem;
+  font-size: 4.5rem;
   margin: auto;
 }
+.sliderContainer .card .text p {
+  font-size: 1.2rem;
+}
 .sliderContainer .card img {
-  max-width: 50%;
+  max-width: 45%;
 }
 
 .midSection {
@@ -83,17 +88,19 @@
   position: relative;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 1.5rem;
-  outline: 1px solid rgba(128, 128, 128, 0.245);
+  outline: 1px solid rgba(83, 83, 83, 0.245);
   flex: 1;
-  min-width: 20rem;
+  min-width: 12rem;
+  max-width: 12rem;
   margin: 1rem;
   transition: background-color opacity ease-out 250ms;
   cursor: pointer;
-}
-.grid .eachGrid img {
   -o-object-fit: cover;
      object-fit: cover;
+}
+.grid .eachGrid img {
   max-width: 100%;
   height: auto;
 }
@@ -113,7 +120,22 @@
   transform: translate(-50%, -50%);
   color: white;
   opacity: 0;
-  transition: opacity ease-out 250ms;
+  transition: transform 1s opacity ease-out 250ms;
+}
+.grid .icons div {
+  padding-right: 0.7rem;
+}
+.grid .icons .search:hover,
+.grid .icons .addtocart:hover,
+.grid .icons .wishlist:hover {
+  color: lightblue;
+  transform: scale(1.3);
+  transition: transform 0.2s ease-in-out;
+}
+.grid .icons .search:active,
+.grid .icons .addtocart:active,
+.grid .icons .wishlist:active {
+  color: rgb(125, 207, 234);
 }
 .grid .eachGrid:hover .icons {
   opacity: 1;

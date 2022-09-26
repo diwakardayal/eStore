@@ -1,0 +1,14 @@
+###
+
+POST http://localhost:5001/api/wishlist HTTP/1.1 content-type: Application/JSON
+
+{
+    "uniqueId":"123",
+    "productName":"YES",
+    "productId":"YES",
+    "amount":123,
+    "quantity":123,
+    "img":"123",
+    "color":"black",
+    "size":"medium"
+}
